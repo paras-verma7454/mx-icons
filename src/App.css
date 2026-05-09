@@ -543,6 +543,7 @@
   );
   --modal-line: rgba(148, 163, 184, 0.24);
   --modal-line-strong: rgba(148, 163, 184, 0.36);
+  --modal-scrollbar-track: #2e3d52;
   --modal-scrollbar-thumb: rgba(148, 163, 184, 0.32);
   --modal-scrollbar-thumb-hover: rgba(148, 163, 184, 0.46);
   --modal-scrollbar-thumb-active: rgba(148, 163, 184, 0.56);
@@ -572,7 +573,7 @@
     0 1px 0 rgba(255, 255, 255, 0.08) inset;
   animation: modalEnter 0.18s ease-out;
   scrollbar-width: thin;
-  scrollbar-color: var(--modal-line-strong) transparent;
+  scrollbar-color: var(--modal-line-strong) var(--modal-scrollbar-track);
 }
 
 .modal-card::before {
@@ -586,10 +587,11 @@
 
 .modal-card::-webkit-scrollbar {
   width: 8px;
+  background: var(--modal-scrollbar-track);
 }
 
 .modal-card::-webkit-scrollbar-track {
-  background: transparent;
+  background: var(--modal-scrollbar-track);
 }
 
 .modal-card::-webkit-scrollbar-thumb {
