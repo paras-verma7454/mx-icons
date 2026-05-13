@@ -529,10 +529,16 @@
   padding: clamp(0.75rem, 2vw, 2rem);
   overflow-y: auto;
   animation: fadeIn 0.2s;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.modal-overlay::-webkit-scrollbar {
+  display: none;
 }
 
 .modal-card {
-  --modal-surface: #142033;
+  --modal-surface: #2e3d52;
   --modal-surface-raised: #18263c;
   --modal-surface-soft: #203149;
   --modal-surface-deep: #0e1726;
@@ -544,9 +550,9 @@
   --modal-line: rgba(148, 163, 184, 0.24);
   --modal-line-strong: rgba(148, 163, 184, 0.36);
   --modal-scrollbar-track: transparent;
-  --modal-scrollbar-thumb: rgba(148, 163, 184, 0.32);
-  --modal-scrollbar-thumb-hover: rgba(148, 163, 184, 0.46);
-  --modal-scrollbar-thumb-active: rgba(148, 163, 184, 0.56);
+  --modal-scrollbar-thumb: #2e3d52;
+  --modal-scrollbar-thumb-hover: #38485f;
+  --modal-scrollbar-thumb-active: #43546b;
   --modal-text: #f8fbff;
   --modal-muted: #a8b5c8;
   --modal-accent: #7c6cff;
@@ -559,9 +565,7 @@
   display: flex;
   flex-direction: column;
   gap: 1.15rem;
-  background:
-    linear-gradient(180deg, rgba(32, 49, 73, 0.92), rgba(18, 29, 46, 0.98)),
-    var(--modal-surface);
+  background: var(--modal-surface);
   border: 1px solid var(--modal-line);
   border-radius: 18px;
   padding: clamp(1.125rem, 2.2vw, 1.75rem);
@@ -572,12 +576,13 @@
     0 34px 80px rgba(0, 0, 0, 0.48),
     0 1px 0 rgba(255, 255, 255, 0.08) inset;
   animation: modalEnter 0.18s ease-out;
-  scrollbar-width: thin;
-  scrollbar-color: var(--modal-line-strong) transparent;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
 .modal-card::before {
   content: "";
+  display: none;
   position: absolute;
   inset: 0;
   pointer-events: none;
@@ -586,21 +591,7 @@
 }
 
 .modal-card::-webkit-scrollbar {
-  width: 8px;
-  background: var(--modal-scrollbar-track);
-}
-
-.modal-card::-webkit-scrollbar-track {
-  background: var(--modal-scrollbar-track);
-  border-radius: 0;
-  margin: 0;
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
-}
-
-.modal-card::-webkit-scrollbar-thumb {
-  background: var(--modal-line-strong);
-  border-radius: 999px;
+  display: none;
 }
 
 @keyframes slideUp {
@@ -982,9 +973,9 @@
 }
 
 .modal-code pre::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.045);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  background: var(--modal-scrollbar-track);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
   border-radius: 6px;
   margin: 4px;
 }
