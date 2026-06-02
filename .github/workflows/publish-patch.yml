@@ -13,11 +13,16 @@ jobs:
     permissions:
       contents: write  # to push version tag
       id-token: write  # optional: for npm provenance (recommended)
+    # Prevent concurrent publishes which cause non-fast-forward push errors on version bumps
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+      cancel-in-progress: true
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # needed for git log if you use any versioning tools
+          ref: main
+          fetch-depth: 0  # checkout latest main at job runtime (for queued runs after prior publishes)
           
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -26,28 +31,61 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
           cache: 'npm'
           
-      # Fix: Regenerate lock file to sync with package.json
       - name: Install dependencies
         run: |
-          rm -f package-lock.json
-          npm install
+          # Prefer exact deps from committed lockfile for reproducible builds.
+          # Fall back to regenerating only if lock is missing/out-of-sync (e.g. after manual edits).
+          if ! npm ci 2>/dev/null; then
+            echo "⚠️ Lock file out of sync or missing, regenerating..."
+            rm -f package-lock.json
+            npm install
+          fi
           
-      - name: Build icons
-        run: npm run build
-        
-      - name: Bump patch version
+      - name: Sync to latest main
         run: |
+          git fetch origin main
+          git checkout -B main origin/main
+          
+      - name: Build library
+        run: npm run build:lib
+        
+      - name: Bump patch version, commit & push
+        run: |
+          # 1. Bump the version in package.json (+ lockfile version field)
           npm version patch --no-git-tag-version
+
+          # 2. Commit the bump (this is what used to happen in the separate "Bump patch version" step)
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
           git add package.json package-lock.json
           git commit -m "chore: bump version to $(node -p "require('./package.json').version") [skip ci]"
-          
-      - name: Push version commit & tag
-        run: |
+
+          # 3. Immediately make the push safe (this is what used to be the failing "Push version commit & tag" step).
+          #    We do it in the *same* script block so there is no inter-step window for another runner to advance main.
+          git fetch origin main
+
+          if git rebase origin/main; then
+            echo "Rebased cleanly onto latest main"
+          else
+            echo "Rebase had conflicts (another push landed during build); syncing to latest + fresh bump from there"
+            git rebase --abort 2>/dev/null || true
+            git checkout -B main origin/main
+            # Rebuild so the published package includes any concurrent icon changes
+            npm run build:lib
+            npm version patch --no-git-tag-version
+            git config user.name "GitHub Actions"
+            git config user.email "actions@github.com"
+            git add package.json package-lock.json
+            git commit -m "chore: bump version to $(node -p "require('./package.json').version") [skip ci]"
+          fi
+
+          # 4. Push the version commit
           git push origin main
-          git tag v$(node -p "require('./package.json').version")
-          git push origin v$(node -p "require('./package.json').version")
+
+          # 5. Tag and push tag
+          VERSION=$(node -p "require('./package.json').version")
+          git tag v$VERSION
+          git push origin v$VERSION || echo "Note: tag push may have been a no-op (tag already existed)"
           
       - name: Publish to npm
         run: npm publish --access public
