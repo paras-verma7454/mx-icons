@@ -741,14 +741,14 @@
 
 /* .code-copy-btn:active {
   transform: scale(0.95);
-}
+} */
 
 /* Copied state keeps black */
 .code-copy-btn.copied {
   color: #000000 !important;
 }
 
-*/ .modal-code h3 {
+.modal-code h3 {
   font-size: 1rem;
   font-weight: 600;
   color: var(--text-color);

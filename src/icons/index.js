@@ -6459,6 +6459,60 @@ import GitForkLinear from "./components/git-fork/GitForkLinear"
 import GitForkBold from "./components/git-fork/GitForkBold"
 import { variants as variantsGitFork } from "./components/git-fork"
 
+import { variants as variantsPremiumAdd } from "./components/premium-add";
+import { PremiumAdd } from "./components/premium-add";
+import { variants as variantsPremiumCalendar } from "./components/premium-calendar";
+import { PremiumCalendar } from "./components/premium-calendar";
+import { variants as variantsPremiumCircleArrow } from "./components/premium-circle-arrow";
+import { PremiumCircleArrow } from "./components/premium-circle-arrow";
+import { variants as variantsPremiumDatabase } from "./components/premium-database";
+import { PremiumDatabase } from "./components/premium-database";
+import { variants as variantsPremiumDelete } from "./components/premium-delete";
+import { PremiumDelete } from "./components/premium-delete";
+import { variants as variantsPremiumDownArrow } from "./components/premium-down-arrow";
+import { PremiumDownArrow } from "./components/premium-down-arrow";
+import { variants as variantsPremiumDownload } from "./components/premium-download";
+import { PremiumDownload } from "./components/premium-download";
+import { variants as variantsPremiumErrors } from "./components/premium-errors";
+import { PremiumErrors } from "./components/premium-errors";
+import { variants as variantsPremiumFilter } from "./components/premium-filter";
+import { PremiumFilter } from "./components/premium-filter";
+import { variants as variantsPremiumId } from "./components/premium-id";
+import { PremiumId } from "./components/premium-id";
+import { variants as variantsPremiumImage } from "./components/premium-image";
+import { PremiumImage } from "./components/premium-image";
+import { variants as variantsPremiumInvoice } from "./components/premium-invoice";
+import { PremiumInvoice } from "./components/premium-invoice";
+import { variants as variantsPremiumLeafFolder } from "./components/premium-leaf-folder";
+import { PremiumLeafFolder } from "./components/premium-leaf-folder";
+import { variants as variantsPremiumMoon } from "./components/premium-moon";
+import { PremiumMoon } from "./components/premium-moon";
+import { variants as variantsPremiumNetwork } from "./components/premium-network";
+import { PremiumNetwork } from "./components/premium-network";
+import { variants as variantsPremiumPaidDate } from "./components/premium-paid-date";
+import { PremiumPaidDate } from "./components/premium-paid-date";
+import { variants as variantsPremiumPaperLayer } from "./components/premium-paper-layer";
+import { PremiumPaperLayer } from "./components/premium-paper-layer";
+import { variants as variantsPremiumParts } from "./components/premium-parts";
+import { PremiumParts } from "./components/premium-parts";
+import { variants as variantsPremiumPen } from "./components/premium-pen";
+import { PremiumPen } from "./components/premium-pen";
+import { variants as variantsPremiumPending } from "./components/premium-pending";
+import { PremiumPending } from "./components/premium-pending";
+import { variants as variantsPremiumRightArrow } from "./components/premium-right-arrow";
+import { PremiumRightArrow } from "./components/premium-right-arrow";
+import { variants as variantsPremiumSerialNo } from "./components/premium-serial-no";
+import { PremiumSerialNo } from "./components/premium-serial-no";
+import { variants as variantsPremiumSidebar } from "./components/premium-sidebar";
+import { PremiumSidebar } from "./components/premium-sidebar";
+import { variants as variantsPremiumSuccess } from "./components/premium-success";
+import { PremiumSuccess } from "./components/premium-success";
+import { variants as variantsPremiumSun } from "./components/premium-sun";
+import { PremiumSun } from "./components/premium-sun";
+import { variants as variantsPremiumWallet } from "./components/premium-wallet";
+import { PremiumWallet } from "./components/premium-wallet";
+
+
 export { Icon };
 
 export {
@@ -11927,6 +11981,32 @@ export {
   WhatsappBold,
   TelegramLinear,
   TelegramBold,
+  PremiumAdd,
+  PremiumCalendar,
+  PremiumCircleArrow,
+  PremiumDatabase,
+  PremiumDelete,
+  PremiumDownArrow,
+  PremiumDownload,
+  PremiumErrors,
+  PremiumFilter,
+  PremiumId,
+  PremiumImage,
+  PremiumInvoice,
+  PremiumLeafFolder,
+  PremiumMoon,
+  PremiumNetwork,
+  PremiumPaidDate,
+  PremiumPaperLayer,
+  PremiumParts,
+  PremiumPen,
+  PremiumPending,
+  PremiumRightArrow,
+  PremiumSerialNo,
+  PremiumSidebar,
+  PremiumSuccess,
+  PremiumSun,
+  PremiumWallet,
   GitForkLinear,
   GitForkBold
 };
@@ -16781,6 +16861,136 @@ export const icons = [
     name: "git-fork",
     slug: "git-fork",
     variants: variantsGitFork,
+  },
+  {
+    name: "premium-add",
+    slug: "premium-add",
+    variants: variantsPremiumAdd,
+  },
+  {
+    name: "premium-calendar",
+    slug: "premium-calendar",
+    variants: variantsPremiumCalendar,
+  },
+  {
+    name: "premium-circle-arrow",
+    slug: "premium-circle-arrow",
+    variants: variantsPremiumCircleArrow,
+  },
+  {
+    name: "premium-database",
+    slug: "premium-database",
+    variants: variantsPremiumDatabase,
+  },
+  {
+    name: "premium-delete",
+    slug: "premium-delete",
+    variants: variantsPremiumDelete,
+  },
+  {
+    name: "premium-down-arrow",
+    slug: "premium-down-arrow",
+    variants: variantsPremiumDownArrow,
+  },
+  {
+    name: "premium-download",
+    slug: "premium-download",
+    variants: variantsPremiumDownload,
+  },
+  {
+    name: "premium-errors",
+    slug: "premium-errors",
+    variants: variantsPremiumErrors,
+  },
+  {
+    name: "premium-filter",
+    slug: "premium-filter",
+    variants: variantsPremiumFilter,
+  },
+  {
+    name: "premium-id",
+    slug: "premium-id",
+    variants: variantsPremiumId,
+  },
+  {
+    name: "premium-image",
+    slug: "premium-image",
+    variants: variantsPremiumImage,
+  },
+  {
+    name: "premium-invoice",
+    slug: "premium-invoice",
+    variants: variantsPremiumInvoice,
+  },
+  {
+    name: "premium-leaf-folder",
+    slug: "premium-leaf-folder",
+    variants: variantsPremiumLeafFolder,
+  },
+  {
+    name: "premium-moon",
+    slug: "premium-moon",
+    variants: variantsPremiumMoon,
+  },
+  {
+    name: "premium-network",
+    slug: "premium-network",
+    variants: variantsPremiumNetwork,
+  },
+  {
+    name: "premium-paid-date",
+    slug: "premium-paid-date",
+    variants: variantsPremiumPaidDate,
+  },
+  {
+    name: "premium-paper-layer",
+    slug: "premium-paper-layer",
+    variants: variantsPremiumPaperLayer,
+  },
+  {
+    name: "premium-parts",
+    slug: "premium-parts",
+    variants: variantsPremiumParts,
+  },
+  {
+    name: "premium-pen",
+    slug: "premium-pen",
+    variants: variantsPremiumPen,
+  },
+  {
+    name: "premium-pending",
+    slug: "premium-pending",
+    variants: variantsPremiumPending,
+  },
+  {
+    name: "premium-right-arrow",
+    slug: "premium-right-arrow",
+    variants: variantsPremiumRightArrow,
+  },
+  {
+    name: "premium-serial-no",
+    slug: "premium-serial-no",
+    variants: variantsPremiumSerialNo,
+  },
+  {
+    name: "premium-sidebar",
+    slug: "premium-sidebar",
+    variants: variantsPremiumSidebar,
+  },
+  {
+    name: "premium-success",
+    slug: "premium-success",
+    variants: variantsPremiumSuccess,
+  },
+  {
+    name: "premium-sun",
+    slug: "premium-sun",
+    variants: variantsPremiumSun,
+  },
+  {
+    name: "premium-wallet",
+    slug: "premium-wallet",
+    variants: variantsPremiumWallet,
   },
 ];
 export { RocketLinear, RocketBold, RocketMini } from "./components/rocket";
