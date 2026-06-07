@@ -1,33 +1,59 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap");
+
 :root {
-  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI",
-    Roboto, "Helvetica Neue", Arial, sans-serif;
+  --site-nav-height: 53px;
+
+  --background: oklch(98.178% 0.00528 95.189);
+  --foreground: oklch(0.3438 0.0269 95.7226);
+  --card: oklch(0.9456 0.0123 91);
+  --card-foreground: oklch(0.1908 0.002 106.5859);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.2671 0.0196 98.939);
+  --primary: oklch(0.6171 0.1375 39.0427);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.9245 0.0138 92.9892);
+  --secondary-foreground: oklch(0.4334 0.0177 98.6048);
+  --muted: oklch(0.9341 0.0153 90.239);
+  --muted-foreground: oklch(0.6059 0.0075 97.4233);
+  --accent: oklch(0.9245 0.0138 92.9892);
+  --accent-foreground: oklch(0.2671 0.0196 98.939);
+  --destructive: oklch(0.1908 0.002 106.5859);
+  --destructive-foreground: oklch(1 0 0);
+  --border: oklch(0.8847 0.0069 97.3627);
+  --input: oklch(0.7621 0.0156 98.3528);
+  --ring: oklch(0.6171 0.1375 39.0427);
+  --radius: 0.5rem;
+
+  /* Legacy aliases used across component CSS */
+  --bg-color: var(--background);
+  --text-color: var(--foreground);
+  --text-secondary: var(--muted-foreground);
+  --text-muted: var(--muted-foreground);
+  --bg-muted: var(--muted);
+  --border-color: var(--border);
+  --card-bg: var(--background);
+  --card-hover: var(--accent);
+  --header-bg: var(--background);
+  --modal-bg: var(--card);
+  --input-bg: var(--background);
+  --secondary-btn-bg: var(--background);
+  --secondary-btn-text: var(--foreground);
+  --secondary-btn-border: var(--foreground);
+  --tag-bg: var(--muted);
+  --tab-active-bg: var(--foreground);
+  --grid-bg: var(--border);
+  --primary-color: var(--primary);
+  --primary-hover: oklch(0.5583 0.1276 42.9956);
+  --primary-text: var(--primary-foreground);
+  --bg-card: var(--card);
+  --bg-card-hover: var(--accent);
+
+  font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco,
+    Consolas, "Liberation Mono", "Courier New", monospace;
   line-height: 1.5;
   font-weight: 400;
-
-  --bg-color: #ffffff;
-  --text-color: #111827;
-  --text-secondary: #6b7280;
-  --bg-muted: #f9fafb;
-  --border-color: #e5e7eb;
-  --card-bg: #ffffff;
-  --card-hover: #f9fafb;
-  --header-bg: linear-gradient(to bottom, #ffffff 0%, #fafbfc 100%);
-  --modal-bg: #ffffff;
-  --input-bg: #ffffff;
-  --secondary-btn-bg: #ffffff;
-  --secondary-btn-text: #374151;
-  --secondary-btn-border: #d1d5db;
-  --tag-bg: #d4d5d6;
-  --tab-active-bg: #e5e7eb;
-  --grid-bg: #e5e7eb;
-
-  --primary-color: #111827;
-  --primary-hover: #1f2937;
-  --primary-text: #ffffff;
-
-  color: var(--text-color);
-  background-color: var(--bg-color);
-
+  color: var(--foreground);
+  background-color: var(--background);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -35,30 +61,32 @@
 }
 
 .dark {
-  --bg-color: #0f172a;
-  --text-color: #f8fafc;
-  --text-secondary: #94a3b8;
-  --bg-muted: #1e293b;
-  --border-color: #334155;
-  --card-bg: #1e293b;
-  --card-hover: #334155;
-  --header-bg: linear-gradient(to bottom, #1e293b 0%, #0f172a 100%);
-  --modal-bg: #1e293b;
-  --input-bg: #1e293b;
-  --secondary-btn-bg: #1e293b;
-  --secondary-btn-text: #f8fafc;
-  --secondary-btn-border: #334155;
-  --tag-bg: #334155;
-  --tab-active-bg: #334155;
-  --grid-bg: #334155;
-  --primary-color: #f8fafc;
-  --primary-hover: #e2e8f0;
-  --primary-text: #0f172a;
+  --background: oklch(0.2679 0.0036 106.6427);
+  --foreground: oklch(0.8074 0.0142 93.0137);
+  --card: oklch(0.2278 0.0036 106.6427);
+  --card-foreground: oklch(0.9818 0.0054 95.0986);
+  --popover: oklch(0.3085 0.0035 106.6039);
+  --popover-foreground: oklch(0.9211 0.004 106.4781);
+  --primary: oklch(0.6724 0.1308 38.7559);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.9818 0.0054 95.0986);
+  --secondary-foreground: oklch(0.3085 0.0035 106.6039);
+  --muted: oklch(0.2213 0.0038 106.707);
+  --muted-foreground: oklch(0.7713 0.0169 99.0657);
+  --accent: oklch(0.213 0.0078 95.4245);
+  --accent-foreground: oklch(0.9663 0.008 98.8792);
+  --destructive: oklch(0.6368 0.2078 25.3313);
+  --destructive-foreground: oklch(1 0 0);
+  --border: oklch(0.3618 0.0101 106.8928);
+  --input: oklch(0.4336 0.0113 100.2195);
+  --ring: oklch(0.6724 0.1308 38.7559);
+  --primary-hover: oklch(0.72 0.14 38.7559);
 }
 
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body {
@@ -69,4 +97,18 @@ body {
 
 button {
   font-family: inherit;
+}
+
+.version-badge {
+  display: inline-block;
+  padding: 0.15rem 0.4rem;
+  font-size: 0.65rem;
+  font-weight: 500;
+  color: var(--muted-foreground);
+  background: var(--muted);
+  letter-spacing: 0.08em;
+}
+
+html {
+  scroll-behavior: smooth;
 }

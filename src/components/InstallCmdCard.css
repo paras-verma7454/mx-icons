@@ -1,0 +1,115 @@
+/* Fumadocs / lucide-motion install command card */
+.install-cmd-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 0.4rem;
+  border: 1px solid var(--border);
+  background: var(--muted);
+}
+
+.install-cmd-tabs {
+  display: flex;
+  gap: 0.875rem;
+  padding: 0 1rem;
+  border-bottom: 1px solid var(--border);
+  color: var(--secondary-foreground);
+}
+
+.install-cmd-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+  padding: 0.5rem 0;
+  margin-bottom: -1px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  font-family: inherit;
+  color: var(--muted-foreground);
+  background: none;
+  border: none;
+  border-bottom: 1px solid transparent;
+  cursor: pointer;
+  transition:
+    color 0.15s,
+    border-color 0.15s;
+}
+
+.install-cmd-tab:hover {
+  color: var(--accent-foreground);
+}
+
+.install-cmd-tab.active {
+  color: var(--primary);
+  border-bottom-color: var(--primary);
+}
+
+.install-cmd-panel {
+  background: transparent;
+}
+
+.install-cmd-figure {
+  position: relative;
+  margin: 0 -1px -1px;
+  border: none;
+  border-bottom-left-radius: 0.75rem;
+  border-bottom-right-radius: 0.75rem;
+  background: var(--muted);
+  overflow: hidden;
+  font-size: 0.8125rem;
+}
+
+.install-cmd-copy {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.5rem;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  padding: 0;
+  color: var(--muted-foreground);
+  background: color-mix(in oklch, var(--background) 70%, transparent);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--border);
+  border-radius: 0.4rem;
+  cursor: pointer;
+  transition: color 0.15s;
+}
+
+.install-cmd-copy:hover,
+.install-cmd-copy.copied {
+  color: var(--foreground);
+}
+
+.install-cmd-viewport {
+  padding: 0.875rem 0;
+  overflow: hidden;
+  font-size: 0.8125rem;
+}
+
+.install-cmd-viewport pre {
+  margin: 0;
+  padding: 0 1rem;
+  padding-right: 2.5rem;
+  overflow: hidden;
+}
+
+.install-cmd-viewport code {
+  display: block;
+  font-family: inherit;
+  font-size: inherit;
+  color: var(--foreground);
+  white-space: pre;
+  background: transparent;
+  padding: 0;
+  border: none;
+}
+
+.install-cmd-viewport .line {
+  display: block;
+}
