@@ -41,10 +41,11 @@
     "react": "^18.0.0 || ^19.0.0"
   },
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
+    "dev": "node scripts/generate-icon-meta.js && vite",
+    "build": "node scripts/generate-icon-meta.js && vite build",
     "build:lib": "npm run generate:types && vite build --config vite.lib.config.js && npm run copy:types",
     "generate:types": "node scripts/generate-types.js",
+    "generate:meta": "node scripts/generate-icon-meta.js",
     "copy:types": "node -e \"const fs=require('fs'); fs.copyFileSync('src/icons/index.d.ts','dist/index.d.ts'); if(fs.existsSync('src/icons/Icon.d.ts')){fs.copyFileSync('src/icons/Icon.d.ts','dist/Icon.d.ts')}\"",
     "lint": "eslint .",
     "preview": "vite preview"

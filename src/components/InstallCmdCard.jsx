@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { CopyLinear, TickCircleLinear } from "../icons";
+import CopyLinear from "../icons/components/copy/CopyLinear.jsx";
+import TickCircleLinear from "../icons/components/tick-circle/TickCircleLinear.jsx";
 import "./InstallCmdCard.css";
 
 const INSTALL_MANAGERS = ["npm", "pnpm"];
